@@ -11,8 +11,8 @@
 # https://www.mediawiki.org/wiki/Manual:Configuration_settings
 
 # Protect against web entry
-if ( !defined( 'MEDIAWIKI' ) ) {
-	exit;
+if (!defined('MEDIAWIKI')) {
+  exit;
 }
 
 
@@ -30,7 +30,7 @@ $wgMetaNamespace = "Waytrue's_wiki";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://127.0.0.1:8080";
+$wgServer = "http://home.waytrue.top:9090";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -38,10 +38,10 @@ $wgResourceBasePath = $wgScriptPath;
 ## The URL paths to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogos = [
-	'1x' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
-	
-	
-	'icon' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
+  '1x' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
+
+
+  'icon' => "$wgResourceBasePath/resources/assets/change-your-logo.svg",
 ];
 
 ## UPO means: this is also a user preference option
@@ -74,7 +74,7 @@ $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
 $wgSharedTables[] = "actor";
 
 ## Shared memory settings
-$wgMainCacheType = CACHE_NONE;
+$wgMainCacheType = CACHE_ACCEL;
 $wgMemCachedServers = [];
 
 ## To enable image uploads, make sure the 'images' directory
@@ -132,46 +132,46 @@ $wgDefaultSkin = "vector";
 
 # Enabled skins.
 # The following skins were automatically enabled:
-wfLoadSkin( 'MinervaNeue' );
-wfLoadSkin( 'MonoBook' );
-wfLoadSkin( 'Timeless' );
-wfLoadSkin( 'Vector' );
+wfLoadSkin('MinervaNeue');
+wfLoadSkin('MonoBook');
+wfLoadSkin('Timeless');
+wfLoadSkin('Vector');
 
 
 # Enabled extensions. Most of the extensions are enabled by adding
 # wfLoadExtension( 'ExtensionName' );
 # to LocalSettings.php. Check specific extension documentation for more details.
 # The following extensions were automatically enabled:
-wfLoadExtension( 'AbuseFilter' );
-wfLoadExtension( 'CategoryTree' );
-wfLoadExtension( 'Cite' );
-wfLoadExtension( 'CiteThisPage' );
-wfLoadExtension( 'ConfirmEdit' );
-wfLoadExtension( 'Gadgets' );
-wfLoadExtension( 'ImageMap' );
-wfLoadExtension( 'InputBox' );
-wfLoadExtension( 'Interwiki' );
-wfLoadExtension( 'LocalisationUpdate' );
-wfLoadExtension( 'Math' );
-wfLoadExtension( 'MultimediaViewer' );
-wfLoadExtension( 'Nuke' );
-wfLoadExtension( 'PageImages' );
-wfLoadExtension( 'ParserFunctions' );
-wfLoadExtension( 'PdfHandler' );
-wfLoadExtension( 'Poem' );
-wfLoadExtension( 'Renameuser' );
-wfLoadExtension( 'ReplaceText' );
-wfLoadExtension( 'Scribunto' );
-wfLoadExtension( 'SecureLinkFixer' );
-wfLoadExtension( 'SpamBlacklist' );
-wfLoadExtension( 'SyntaxHighlight_GeSHi' );
-wfLoadExtension( 'TemplateData' );
-wfLoadExtension( 'TextExtracts' );
-wfLoadExtension( 'TitleBlacklist' );
-wfLoadExtension( 'TextExtracts' );
-wfLoadExtension( 'VisualEditor' );
-wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'VisualEditor' );
+wfLoadExtension('AbuseFilter');
+wfLoadExtension('CategoryTree');
+wfLoadExtension('Cite');
+wfLoadExtension('CiteThisPage');
+wfLoadExtension('ConfirmEdit');
+wfLoadExtension('Gadgets');
+wfLoadExtension('ImageMap');
+wfLoadExtension('InputBox');
+wfLoadExtension('Interwiki');
+wfLoadExtension('LocalisationUpdate');
+wfLoadExtension('Math');
+wfLoadExtension('MultimediaViewer');
+wfLoadExtension('Nuke');
+wfLoadExtension('PageImages');
+wfLoadExtension('ParserFunctions');
+wfLoadExtension('PdfHandler');
+wfLoadExtension('Poem');
+wfLoadExtension('Renameuser');
+wfLoadExtension('ReplaceText');
+wfLoadExtension('Scribunto');
+wfLoadExtension('SecureLinkFixer');
+wfLoadExtension('SpamBlacklist');
+wfLoadExtension('SyntaxHighlight_GeSHi');
+wfLoadExtension('TemplateData');
+wfLoadExtension('TextExtracts');
+wfLoadExtension('TitleBlacklist');
+wfLoadExtension('TextExtracts');
+wfLoadExtension('VisualEditor');
+wfLoadExtension('WikiEditor');
+wfLoadExtension('VisualEditor');
 
 // Enable by default for everybody
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
@@ -190,19 +190,32 @@ $wgHiddenPrefs[] = 'visualeditor-newwikitext';
 // i.e. the main article namespace. To change this, adapt the following example
 // that enables namespaces 0 (main), 2 (user) and 102 (some user specific one)
 $wgVisualEditorAvailableNamespaces = [
-    NS_MAIN => true,
-    NS_USER => true,
-    102 => true,
-    "_merge_strategy" => "array_plus"
+  NS_MAIN => true,
+  NS_USER => true,
+  102 => true,
+  "_merge_strategy" => "array_plus"
 ];
 
 $wgVisualEditorEnableWikitext = true;
-error_reporting( -1 );
-ini_set( 'display_errors', 1 );
+error_reporting(-1);
+ini_set('display_errors', 1);
 
 $wgShowExceptionDetails = true;
 $wgShowDBErrorBacktrace = true;
 
 # End of automatically generated settings.
 # Add more configuration options below.
+wfLoadExtensions([
+  'TextExtracts',
+  'PageImages',
+  'Popups'
+]);
+$wgPopupsHideOptInOnPreferencesPage = true;
+$wgPopupsReferencePreviewsBetaFeature = false;
 
+# Disable for everyone.
+# Disable for users, too: by default 'user' is allowed to edit, even if '*' is not.
+$wgGroupPermissions['*']['createaccount'] = true;
+$wgGroupPermissions['user']['edit'] = false;
+$wgGroupPermissions['writer']['edit'] = true;
+$wgGroupPermissions['writer']['createpage'] = true;

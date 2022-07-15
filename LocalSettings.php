@@ -172,6 +172,10 @@ wfLoadExtension('TextExtracts');
 wfLoadExtension('VisualEditor');
 wfLoadExtension('WikiEditor');
 wfLoadExtension('VisualEditor');
+wfLoadExtension('DarkMode');
+wfLoadExtension('Elastica');
+wfLoadExtension('CirrusSearch');
+wfLoadSkin('aether');
 
 // Enable by default for everybody
 $wgDefaultUserOptions['visualeditor-enable'] = 1;

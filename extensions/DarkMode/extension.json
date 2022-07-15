@@ -1,0 +1,71 @@
+{
+	"name": "DarkMode",
+	"version": "0.1.0",
+	"author": [
+		"MusikAnimal",
+		"R4356th"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:DarkMode",
+	"descriptionmsg": "darkmode-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.35.0"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\DarkMode\\": "includes/"
+	},
+	"Hooks": {
+		"SkinAddFooterLinks": "main",
+		"PersonalUrls": "main",
+		"SkinBuildSidebar": "main",
+		"BeforePageDisplay": "main",
+		"GetPreferences": "main"
+	},
+	"HookHandlers": {
+		"main": {
+			"class": "MediaWiki\\Extension\\DarkMode\\Hooks",
+			"services": [
+				"MainConfig",
+				"UserOptionsLookup"
+			]
+		}
+	},
+	"MessagesDirs": {
+		"DarkMode": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.DarkMode": {
+			"scripts": [
+				"ext.DarkMode.js"
+			],
+			"targets": [
+				"desktop"
+			],
+			"messages": [
+				"darkmode-link",
+				"darkmode-default-link"
+			]
+		},
+		"ext.DarkMode.styles": {
+			"styles": [
+				"ext.DarkMode.less"
+			],
+			"targets": [
+				"desktop"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "DarkMode/resources"
+	},
+	"config": {
+		"DarkModeTogglePosition": {
+			"value": "personal"
+		}
+	},
+	"manifest_version": 2
+}

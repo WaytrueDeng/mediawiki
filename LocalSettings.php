@@ -30,7 +30,8 @@ $wgMetaNamespace = "Waytrue's_wiki";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://home.waytrue.top:9090";
+#$wgServer = "http://home.waytrue.top:9090";
+$wgServer = WebRequest::detectServer();
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -175,7 +176,7 @@ wfLoadExtension('VisualEditor');
 wfLoadExtension('DarkMode');
 wfLoadExtension('Elastica');
 wfLoadExtension('CirrusSearch');
-wfLoadSkin('aether');
+#wfLoadSkin('aether');
 
 // Enable by default for everybody
 $wgDefaultUserOptions['visualeditor-enable'] = 1;
